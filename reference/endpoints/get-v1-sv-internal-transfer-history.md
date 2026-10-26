@@ -1,0 +1,38 @@
+# Get internal transfer history
+
+`GET /v1/sv/internal_transfer_history`
+
+**Authentication:** None
+
+**Rate limit:** 10 requests per second per account
+
+## Description
+
+Non-Vault Account to Strategy Provider Account
+
+## Parameters
+
+| Name | Location | Type | Required | Description |
+|---|---|---|---|---|
+| `page` | query | number | No | the page you wish to query start from 1 |
+| `size` | query | number | No | the page size you wish to query (max: 500) |
+
+## Responses
+
+### HTTP 200
+
+Success
+
+| Field | Type | Required | Description |
+|---|---|---|---|
+| `success` | boolean | Yes | Indicates whether the request was successful. Example: `True` |
+| `timestamp` | integer | No | Server timestamp in milliseconds. Example: `1702989203989` |
+| `data` | object | No | — |
+| `data.meta` | object | No | — |
+| `data.meta.total` | number | No | Example: `2` |
+| `data.meta.records_per_page` | number | No | Example: `25` |
+| `data.meta.current_page` | number | No | start from 1 Example: `1` |
+| `data.rows` | array<object> | No | — |
+| `data.rows[].executed_time` | number | No | Example: `1734652800000` |
+| `data.rows[].from_account` | string | No | Example: `` |
+| `data.rows[].amount` | number | No | Example: `13633.532389` |
